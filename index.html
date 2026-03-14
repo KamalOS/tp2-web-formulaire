@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription Premium</title>
+    <meta name="description" content="Formulaire d'inscription premium avec validation HTML5">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <main class="container">
+        <header class="form-header">
+            <h1>Rejoignez-nous</h1>
+            <p>Créez votre compte en quelques secondes.</p>
+        </header>
+
+        <form id="registerForm" action="#" method="POST" enctype="multipart/form-data">
+            <!-- Fieldset 1 : Informations Personnelles -->
+            <fieldset>
+                <legend>Informations Personnelles</legend>
+                <div class="input-group-row">
+                    <div class="input-group">
+                        <label for="prenom">Prénom</label>
+                        <input type="text" id="prenom" name="prenom" required autocomplete="given-name"
+                            placeholder="Mohammed">
+                    </div>
+                    <div class="input-group">
+                        <label for="nom">Nom</label>
+                        <input type="text" id="nom" name="nom" required autocomplete="family-name" placeholder="Ahmad">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Adresse Email</label>
+                    <input type="email" id="email" name="email" required autocomplete="email"
+                        placeholder="ahmed.mohammed@example.com">
+                </div>
+
+                <div class="input-group">
+                    <label for="telephone">Téléphone</label>
+                    <input type="tel" id="telephone" name="telephone" required autocomplete="tel"
+                        pattern="^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$" placeholder="06 12 34 56 78">
+                </div>
+
+                <div class="input-group">
+                    <label for="date_naissance">Date de naissance</label>
+                    <input type="date" id="date_naissance" name="date_naissance" required autocomplete="bday">
+                </div>
+            </fieldset>
+
+            <!-- Fieldset 2 : Sécurité -->
+            <fieldset>
+                <legend>Sécurité</legend>
+                <div class="input-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" required autocomplete="new-password"
+                        pattern="^(?=.*\d)(?=.*[A-Z]).{8,}$" placeholder="••••••••"
+                        title="Au moins 8 caractères, dont 1 majuscule et 1 chiffre">
+                </div>
+                <div class="input-group">
+                    <label for="password_confirm">Confirmer le mot de passe</label>
+                    <input type="password" id="password_confirm" name="password_confirm" required
+                        autocomplete="new-password" placeholder="••••••••">
+                </div>
+            </fieldset>
+
+            <!-- Fieldset 3 : Informations Complémentaires -->
+            <fieldset>
+                <legend>Profil & Préférences</legend>
+
+                <div class="input-group">
+                    <label for="pays">Pays de résidence</label>
+                    <input list="pays-list" id="pays" name="pays" required autocomplete="country-name"
+                        placeholder="Sélectionnez un pays...">
+                    <datalist id="pays-list">
+                        <select>
+                            <option value="Maroc">Maroc</option>
+                            <option value="France">France</option>
+                            <option value="Belgique">Belgique</option>
+                            <option value="Suisse">Suisse</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Luxembourg">Luxembourg</option>
+                        </select>
+                    </datalist>
+                </div>
+
+                <div class="input-group radio-group">
+                    <label class="group-label">Genre</label>
+                    <div class="radio-options">
+                        <label><input type="radio" id="genre_homme" name="genre" value="homme" required> Homme</label>
+                        <label><input type="radio" id="genre_femme" name="genre" value="femme" required> Femme</label>
+                    </div>
+                </div>
+
+                <div class="input-group checkbox-group">
+                    <label class="group-label">Centres d'intérêt</label>
+                    <div class="checkbox-options">
+                        <label><input type="checkbox" id="interet_sport" name="interets" value="sport"> Sport</label>
+                        <label><input type="checkbox" id="interet_musique" name="interets" value="musique">
+                            Musique</label>
+                        <label><input type="checkbox" id="interet_tech" name="interets" value="technologie">
+                            Technologie</label>
+                        <label><input type="checkbox" id="interet_voyage" name="interets" value="voyage"> Voyage</label>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="biographie">Biographie</label>
+                    <textarea id="biographie" name="biographie" maxlength="500"
+                        placeholder="Parlez-nous un peu de vous..." rows="4"></textarea>
+                    <div class="char-counter"><span id="char-count">0</span>/500</div>
+                </div>
+
+                <div class="input-group">
+                    <label for="photo_profil">Photo de profil</label>
+                    <div class="file-upload-wrapper">
+                        <input type="file" id="photo_profil" name="photo_profil" accept="image/*" class="file-input">
+                        <div class="file-upload-design">
+                            <span class="file-upload-btn">Choisir un fichier</span>
+                            <span class="file-upload-name">Aucun fichier sélectionné</span>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Fieldset 4 : Validation finale -->
+            <fieldset class="fieldset-no-border">
+                <div class="input-group terms-group">
+                    <label class="terms-label">
+                        <input type="checkbox" id="cgu" name="cgu" required>
+                        <span>J'accepte les <a href="#">Conditions Générales d'Utilisation</a></span>
+                    </label>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span>Créer mon compte</span>
+                </button>
+            </fieldset>
+        </form>
+    </main>
+    <script src="main.js"></script>
+</body>
+
+</html>
